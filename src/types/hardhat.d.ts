@@ -13,15 +13,42 @@ import { ethers } from "ethers";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "Escrow",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Escrow__factory>;
+    getContractFactory(
       name: "Greeter",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Greeter__factory>;
+    getContractFactory(
+      name: "IERC20Minimal",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20Minimal__factory>;
+    getContractFactory(
+      name: "VerifySignature",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.VerifySignature__factory>;
 
+    getContractAt(
+      name: "Escrow",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Escrow>;
     getContractAt(
       name: "Greeter",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.Greeter>;
+    getContractAt(
+      name: "IERC20Minimal",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20Minimal>;
+    getContractAt(
+      name: "VerifySignature",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.VerifySignature>;
 
     // default types
     getContractFactory(
