@@ -1,8 +1,28 @@
 pragma solidity ^0.8.10;
 
-
+import  "./libraries/SafeMath.sol";
+import  "./EIP712Base.sol";
 contract VerifySignature {
 
+
+    mapping(address => uint256) nonces;
+
+    bytes32 private constant META_TRANSACTION_TYPEHASH = keccak256(
+        bytes(
+            "MetaTransaction(uint256 nonce,address from,bytes functionSignature)"
+        )
+    );
+
+    /*
+     * Meta transaction structure.
+     * No point of including value field here as if user is doing value transfer then he has the funds to pay for gas
+     * He should call the desired function directly in that case.
+     */
+    struct MetaTransaction {
+        uint256 nonce;
+        address from;
+        bytes functionSignature;
+    }
     function getMessageHash(
         address _to,
         uint _amount,

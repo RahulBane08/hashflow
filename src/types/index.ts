@@ -4,17 +4,24 @@
 
 /* eslint-disable */
 import type * as interfaces from "./interfaces";
-import type * as verifySignatureSol from "./verifySignature";
+import type * as nativeMetaTransactionSol from "./nativeMetaTransaction.sol";
+import type * as verifySignatureSol from "./verifySignature.sol";
 
 export type { interfaces };
 
+export type { nativeMetaTransactionSol };
+
 export type { verifySignatureSol };
+export type { EIP712Base } from "./EIP712Base";
 export type { Escrow } from "./Escrow";
 export type { Greeter } from "./Greeter";
 export * as factories from "./factories";
+export { EIP712Base__factory } from "./factories/EIP712Base__factory";
 export { Escrow__factory } from "./factories/Escrow__factory";
 export { Greeter__factory } from "./factories/Greeter__factory";
 export type { IERC20Minimal } from "./interfaces/IERC20Minimal";
 export { IERC20Minimal__factory } from "./factories/interfaces/IERC20Minimal__factory";
-export type { VerifySignature } from "./verifySignature/VerifySignature";
+export type { NativeMetaTransaction } from "./nativeMetaTransaction.sol/NativeMetaTransaction";
+export { NativeMetaTransaction__factory } from "./factories/nativeMetaTransaction.sol/NativeMetaTransaction__factory";
+export type { VerifySignature } from "./verifySignature.sol/VerifySignature";
 export { VerifySignature__factory } from "./factories/verifySignature.sol/VerifySignature__factory";

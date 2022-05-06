@@ -13,6 +13,10 @@ import { ethers } from "ethers";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "EIP712Base",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.EIP712Base__factory>;
+    getContractFactory(
       name: "Escrow",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Escrow__factory>;
@@ -25,10 +29,19 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20Minimal__factory>;
     getContractFactory(
+      name: "NativeMetaTransaction",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.NativeMetaTransaction__factory>;
+    getContractFactory(
       name: "VerifySignature",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.VerifySignature__factory>;
 
+    getContractAt(
+      name: "EIP712Base",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.EIP712Base>;
     getContractAt(
       name: "Escrow",
       address: string,
@@ -44,6 +57,11 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20Minimal>;
+    getContractAt(
+      name: "NativeMetaTransaction",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.NativeMetaTransaction>;
     getContractAt(
       name: "VerifySignature",
       address: string,

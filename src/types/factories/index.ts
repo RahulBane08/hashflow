@@ -2,6 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export * as interfaces from "./interfaces";
+export * as nativeMetaTransactionSol from "./nativeMetaTransaction.sol";
 export * as verifySignatureSol from "./verifySignature.sol";
+export { EIP712Base__factory } from "./EIP712Base__factory";
 export { Escrow__factory } from "./Escrow__factory";
 export { Greeter__factory } from "./Greeter__factory";
